@@ -187,3 +187,20 @@ tmpfs                            188272       0    188272   0% /run/user/0
 /dev/vdb1                       1044132   32944   1011188   4% /mnt/mymount
 [root@rhcsa1 mnt]#
 ```
+
+Alternate way of mounting the partition is to use the UUID instead of the device name.
+```
+[root@rhcsa1 mnt]# mount -U be8264e8-99b9-4eaf-b0f3-2f9e09da6b55 /mnt/mymount
+[root@rhcsa1 mnt]# df
+Filesystem                    1K-blocks    Used Available Use% Mounted on
+/dev/mapper/centos_rhcsa-root   8374272 3932680   4441592  47% /
+devtmpfs                         924236       0    924236   0% /dev
+tmpfs                            941356       0    941356   0% /dev/shm
+tmpfs                            941356    9424    931932   2% /run
+tmpfs                            941356       0    941356   0% /sys/fs/cgroup
+/dev/vda1                       1038336  173248    865088  17% /boot
+tmpfs                            188272      12    188260   1% /run/user/42
+tmpfs                            188272       0    188272   0% /run/user/0
+/dev/vdb1                       1044132   32944   1011188   4% /mnt/mymount
+[root@rhcsa1 mnt]#
+```
