@@ -1,0 +1,10 @@
+# virt-clone \
+           --original demo \
+           --name newdemo \
+           --file /var/lib/xen/images/newdemo.img
+
+yum install -y openldap-clients openldap-servers oddjob-mkhomedir
+
+[root@centosldap ~]# setsebool -P allow_ypbind=1
+[root@centosldap ~]# setsebool -P authlogin_nsswitch_use_ldap=1
+[root@centosldap ~]# systemctl start slapd.service
